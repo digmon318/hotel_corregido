@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports - Royelle Hotel</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f8f8f8;
+            color: #333;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background: #03312E;
+            color: white;
+            font-size: 14px;
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 40px;
+            align-items: center;
+        }
+
+        .top-bar div {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .top-bar a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Navbar */
+        nav {
+            background: white;
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        nav .logo {
+            font-weight: bold;
+            font-size: 22px;
+            color: #03312E;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+        }
+
+        nav ul li a.active {
+            color: #03312E;
+            font-weight: bold;
+        }
+
+        .btn-book {
+            background: #03312E;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: url('https://images.unsplash.com/photo-1546483875-ad9014c88eba') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+            position: relative;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(3, 49, 46, 0.6);
+            z-index: 0;
+        }
+
+        .hero h1,
+        .hero p {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 40px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .breadcrumb {
+            position: relative;
+            z-index: 1;
+            font-size: 16px;
+            color: #ddd;
+        }
+
+        /* Sports Section */
+        .activities {
+            padding: 60px 40px;
+            text-align: center;
+        }
+
+        .activities h2 {
+            font-size: 28px;
+            color: #03312E;
+            margin-bottom: 20px;
+        }
+
+        .activity-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .activity-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .activity-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .activity-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .activity-info {
+            padding: 20px;
+            text-align: left;
+        }
+
+        .activity-info h3 {
+            margin: 5px 0;
+            font-size: 18px;
+            color: #03312E;
+        }
+
+        .activity-info p {
+            margin: 5px 0;
+            color: #777;
+            font-size: 14px;
+        }
+
+        /* QR Code Section */
+        .qr-section {
+            text-align: center;
+            padding: 10px 10px;
+        }
+
+        .qr-section h2 {
+            font-size: 28px;
+            color: #03312E;
+            margin-bottom: 20px;
+        }
+
+        .qr-code img {
+            width: 300px;
+            height: 300px;
+            border: 5px solid #03312E;
+        }
+
+        .footer {
+            background-color: #2c2c2c;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .top-bar {
+                flex-direction: column;
+                gap: 5px;
+                padding: 10px;
+            }
+
+            .top-bar div {
+                flex-direction: column;
+                gap: 5px;
+                text-align: center;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 15px;
+                padding: 15px 20px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+
+            .hero {
+                padding: 80px 10px;
+            }
+
+            .hero h1 {
+                font-size: 30px;
+            }
+
+            .activities {
+                padding: 40px 15px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .top-bar, nav {
+                padding: 10px;
+            }
+            .activity-grid {
+                grid-template-columns: 1fr;
+            }
+            .qr-code img {
+                width: 250px;
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="top-bar">
+        <div>
+            <span>(000) 000-0000</span>
+            <span>example@gmail.com</span>
+            <span>2464 Royal Ln. Mesa, New Jersey 45463</span>
+        </div>
+        <div>
+            <a href="#">🌐</a>
+            <a href="#">🐦</a>
+            <a href="#">📸</a>
+            <a href="#">💼</a>
+        </div>
+    </div>
+
+    <nav>
+        <div class="logo">🏨 Royelle</div>
+        <ul>
+            <li><a href="restaurante.html">Restaurant</a></li>
+            <li><a href="deportes.html" class="active">Sports</a></li>
+            <li><a href="jardineria.html">Gardening</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact Us</a></li>
+        </ul>
+        <button class="btn-book">Book Now</button>
+    </nav>
+
+    <div class="hero">
+        <h1>Our Sports</h1>
+        <p class="breadcrumb">Home > Sports</p>
+    </div>
+
+    <section class="activities">
+        <h2>Enjoy Our Sports</h2>
+        <div class="activity-grid">
+            
+            <div class="activity-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWIHbtHVx1GiQzv3PctdxJCsIr6MpOGgI8rg&s" alt="Tenis">
+                <div class="activity-info">
+                    <h3>Tenis</h3>
+                    <p>Cancha profesional disponible para partidos y clases personalizadas.</p>
+                </div>
+            </div>
+
+            <div class="activity-card">
+                <img src="https://images.unsplash.com/photo-1558611848-73f7eb4001a1" alt="Natación">
+                <div class="activity-info">
+                    <h3>Natación</h3>
+                    <p>Piscinas semiolímpicas y recreativas para todas las edades.</p>
+                </div>
+            </div>
+
+            <div class="activity-card">
+                <img src="https://universidadeuropea.com/resources/media/images/scouting-futbol-1200x630.2e16d0ba.fill-767x384.jpg" alt="Fútbol">
+                <div class="activity-info">
+                    <h3>Fútbol</h3>
+                    <p>Campo de fútbol ideal para partidos amistosos y torneos.</p>
+                </div>
+            </div>
+
+            <div class="activity-card">
+                <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b" alt="Gimnasio">
+                <div class="activity-info">
+                    <h3>Gimnasio</h3>
+                    <p>Equipos de última generación y entrenadores certificados.</p>
+                </div>
+            </div>
+
+            <div class="activity-card">
+                <img src="https://a.storyblok.com/f/97382/2000x1500/4c15e1224b/cover-benefits-of-yoga-and-meditation.png" alt="Yoga">
+                <div class="activity-info">
+                    <h3>Yoga</h3>
+                    <p>Clases de yoga y meditación en ambientes tranquilos.</p>
+                </div>
+            </div>
+
+            <div class="activity-card">
+                <img src="img/cilcismo.jpg" alt="Ciclismo">
+                <div class="activity-info">
+                    <h3>Ciclismo</h3>
+                    <p>Rutas guiadas y bicicletas disponibles para nuestros huéspedes.</p>
+                </div>
+            </div>
+
+            <!-- NUEVOS CONTENEDORES -->
+            <div class="activity-card">
+                <img src="img/baloncesto.jpg" alt="Baloncesto">
+                <div class="activity-info">
+                    <h3>Baloncesto</h3>
+                    <p>Cancha moderna para partidos recreativos y entrenamientos en equipo.</p>
+                </div>
+            </div>
+
+            <div class="activity-card">
+                <img src="img/golf.jpeg" alt="Golf">
+                <div class="activity-info">
+                    <h3>Golf</h3>
+                    <p>Campo de golf rodeado de naturaleza con clases para principiantes y expertos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="qr-section">
+        <h2>Escanea para Reservar</h2>
+        <div class="qr-code">
+            <img src="img/codigo qr.png" alt="Código QR para reservas">
+        </div>
+        <p>Escanea este código para acceder a nuestro sistema de reservas y planificar tu próxima actividad deportiva.</p>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2025 Royal Hotel. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>

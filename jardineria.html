@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Royelle - Jardines del Hotel</title>
+    <style>
+        :root {
+            --primary-color: #4b6a4a;
+            --secondary-color: #f0f0f0;
+            --dark-color: #333;
+            --light-color: #fff;
+            --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            font-family: var(--font-family);
+            margin: 0;
+            background-color: var(--secondary-color);
+        }
+
+        /* 🔹 Top Bar */
+        .top-bar {
+            background: #03312E;
+            color: white;
+            font-size: 14px;
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 40px;
+            align-items: center;
+            flex-wrap: wrap;
+            text-align: center;
+        }
+
+        .top-bar div {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px 20px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .top-bar a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* 🔹 Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background-color: white;
+            position: relative;
+        }
+
+        .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #03312E;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: #03312E;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .book-now {
+            background-color: var(--primary-color);
+            color: var(--light-color);
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            border-radius: 5px;
+        }
+
+        .book-now:hover {
+            background-color: #3d563d;
+        }
+
+        /* 🔹 Menú hamburguesa */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            background: #03312E;
+            width: 25px;
+            height: 3px;
+            margin: 4px 0;
+            border-radius: 2px;
+        }
+
+        /* 🔹 Hero */
+        .hero-section {
+            position: relative;
+            height: 400px;
+            background-image: url('https://www.shutterstock.com/image-photo/gardening-tools-set-flowers-sunny-260nw-1639064380.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-overlay {
+            background-color: rgba(0, 0, 0, 0.4);
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero-overlay h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+
+        .hero-overlay p {
+            font-size: 1.2em;
+            text-transform: uppercase;
+        }
+
+        /* 🔹 Contenido */
+        .content {
+            padding: 50px 10%;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2em;
+            color: var(--dark-color);
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        .section-text {
+            max-width: 800px;
+            margin: 0 auto 50px;
+            line-height: 1.6;
+            color: #666;
+        }
+
+        /* 🔹 Grid de plantas */
+        .plant-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            text-align: left;
+        }
+
+        .plant-card {
+            background-color: var(--light-color);
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .plant-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .plant-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .plant-card h3 {
+            color: var(--primary-color);
+            font-size: 1.5em;
+            margin: 15px;
+        }
+
+        .plant-card p {
+            color: #666;
+            font-size: 0.9em;
+            padding: 0 15px 15px;
+            margin: 0;
+        }
+
+        /* 🔹 Footer */
+        .footer {
+            background-color: #2c2c2c;
+            color: var(--light-color);
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+
+        /* 📱 Responsividad */
+        @media (max-width: 900px) {
+            .top-bar {
+                flex-direction: column;
+                gap: 8px;
+                padding: 10px;
+            }
+
+            .navbar {
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                background: #fff;
+                text-align: center;
+                margin-top: 10px;
+                border-top: 1px solid #ccc;
+                padding: 15px 0;
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 10px 0;
+            }
+
+            .book-now {
+                width: 100%;
+                margin-top: 10px;
+            }
+
+            .hero-overlay h1 {
+                font-size: 2em;
+            }
+
+            .hero-overlay p {
+                font-size: 1em;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .hero-section {
+                height: 300px;
+            }
+
+            .section-title {
+                font-size: 1.5em;
+            }
+
+            .section-text {
+                font-size: 0.95em;
+                padding: 0 10px;
+            }
+
+            .plant-card h3 {
+                font-size: 1.2em;
+            }
+
+            .plant-card p {
+                font-size: 0.85em;
+            }
+        }
+    </style>
+
+    <script>
+        // Menú móvil
+        document.addEventListener("DOMContentLoaded", function () {
+            const toggle = document.querySelector(".menu-toggle");
+            const navLinks = document.querySelector(".nav-links");
+            toggle.addEventListener("click", () => {
+                navLinks.classList.toggle("show");
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div>
+            <span>(000) 000-0000</span>
+            <span>example@gmail.com</span>
+            <span>2464 Royal Ln. Mesa, New Jersey 45463</span>
+        </div>
+        <div>
+            <a href="#">🌐</a>
+            <a href="#">🐦</a>
+            <a href="#">📸</a>
+            <a href="#">💼</a>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">🏨 Royelle</div>
+        <div class="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="restaurante.html">Restaurante</a></li>
+            <li><a href="deportes.html">Sports</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">Sobre Nosotros</a></li>
+            <li><a href="#">Contacto</a></li>
+        </ul>
+        <button class="book-now">Reservar Ahora</button>
+    </nav>
+
+    <!-- Hero -->
+    <div class="hero-section">
+        <div class="hero-overlay">
+            <h1>Jardines del Hotel</h1>
+            <p>Inicio > Jardines</p>
+        </div>
+    </div>
+
+    <!-- Contenido -->
+    <main class="content">
+        <section class="welcome-section">
+            <h2 class="section-title">BIENVENIDO A LOS JARDINES DEL ROYAL HOTEL</h2>
+            <p class="section-text">
+                Sumérgete en un santuario de paz y belleza natural. Los jardines del Royal Hotel han sido cuidadosamente diseñados para ofrecer un escape de la vida cotidiana, un espacio donde la arquitectura se fusiona con la naturaleza. Descubre nuestros vibrantes ecosistemas y relájate en un entorno de serenidad y verdor.
+            </p>
+        </section>
+
+        <section class="plants-section">
+            <h2 class="section-title">Descubre Nuestra Flora</h2>
+            <div class="plant-grid">
+                <div class="plant-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTulry2YxFADcUpBXIdzi6eH995B537nMX3Xw&s" alt="Rosales">
+                    <h3>Rosales (Rosa spp.)</h3>
+                    <p>Símbolo universal del amor y la belleza, nuestros rosales florecen en una amplia gama de colores. Disfruta de su delicado aroma mientras paseas por nuestros jardines.</p>
+                </div>
+                <div class="plant-card">
+                    <img src="https://www.shutterstock.com/image-photo/behind-blue-sky-picture-three-600nw-2587122355.jpg" alt="Helecho de Boston">
+                    <h3>Helecho de Boston (Nephrolepis exaltata)</h3>
+                    <p>Estos helechos de hojas frondosas y elegantes aportan un toque de frescura y serenidad. Se encuentran en las zonas más húmedas y con sombra, creando rincones perfectos para la meditación.</p>
+                </div>
+                <div class="plant-card">
+                    <img src="https://cdn.pixabay.com/photo/2021/10/04/11/20/cosmos-6680029_640.jpg" alt="Suculentas">
+                    <h3>Suculentas (Crassulaceae)</h3>
+                    <p>Adaptables y resistentes, nuestras colecciones de suculentas añaden textura y forma a los jardines. Son un recordatorio de la belleza que puede florecer incluso en condiciones adversas.</p>
+                </div>
+                <div class="plant-card">
+                    <img src="https://centrodejardineriagorbeia.com/wp-content/uploads/2022/04/Tulipanes-significadoflores-scaled.jpg" alt="Tulipanes">
+                    <h3>Tulipanes (Tulipa spp.)</h3>
+                    <p>Con su elegante forma y vivos colores, los tulipanes representan la alegría y la renovación. Son protagonistas de nuestros jardines en primavera, aportando belleza y vida al entorno.</p>
+                </div>
+                <div class="plant-card">
+                    <img src="https://vizcaya.org/wp-content/uploads/2021/09/Phalaenopsis-or-Moth-orchid-217-1536x864.jpg" alt="Orquídeas">
+                    <h3>Orquídeas (Orchidaceae)</h3>
+                    <p>Exóticas y sofisticadas, las orquídeas aportan un toque tropical a nuestros jardines. Su delicada forma y variedad de colores las convierten en una de las flores más admiradas.</p>
+                </div>
+                <div class="plant-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgUplHmtVM6asEHBywjmV8-TLfF4Zr7n8B1Q&s" alt="Lavanda">
+                    <h3>Lavanda (Lavandula angustifolia)</h3>
+                    <p>Con su fragancia calmante y sus tonos violeta, la lavanda llena el aire de frescura. Además de su belleza, sus propiedades relajantes la hacen ideal para paseos tranquilos.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Royal Hotel. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>

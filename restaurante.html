@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Restaurante - Royal Hotel</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: #fafafa;
+    }
+
+    .top-bar {
+      background: #03312E;
+      color: white;
+      font-size: 14px;
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 40px;
+      align-items: center;
+    }
+
+    .top-bar div {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .top-bar a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      background: #fff;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo h1 {
+      font-size: 20px;
+      color: #004d40;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover,
+    nav ul li a.active {
+      color: #004d40;
+    }
+
+    .book-btn {
+      background: #004d40;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .book-btn:hover {
+      background: #00796b;
+    }
+
+    .hero {
+      background-size: cover;
+      background-position: center;
+      height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      color: #fff;
+      text-align: center;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+    }
+
+    .hero-text {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-text h2 {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+
+    .hero-text p {
+      font-size: 16px;
+    }
+
+    .info {
+      padding: 50px 20px;
+      text-align: center;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .info h2 {
+      font-size: 28px;
+      color: #004d40;
+      margin-bottom: 15px;
+    }
+
+    .info p {
+      color: #555;
+      font-size: 16px;
+    }
+
+    .menu-preview {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 40px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .menu-item {
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.3s;
+    }
+
+    .menu-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .menu-item img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .menu-item h3 {
+      margin: 15px 0 5px;
+      font-size: 20px;
+      color: #004d40;
+    }
+
+    .menu-item p {
+      font-size: 14px;
+      color: #555;
+      padding: 0 10px 20px;
+    }
+
+    .footer {
+      background-color: #2c2c2c;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Barra superior -->
+  <div class="top-bar">
+    <div>
+      <span>(000) 000-0000</span>
+      <span>example@gmail.com</span>
+      <span>2464 Royal Ln. Mesa, New Jersey 45463</span>
+    </div>
+    <div>
+      <a href="#">🌐</a>
+      <a href="#">🐦</a>
+      <a href="#">📸</a>
+      <a href="#">💼</a>
+    </div>
+  </div>
+
+  <!-- Navegación -->
+  <header class="header">
+    <div class="logo">
+      <h1>🏨 Royelle</h1>
+    </div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="deportes.html">Sports</a></li>
+        <li><a href="jardineria.html">Gardening</a></li>
+        <li><a href="restaurante.html" class="active">Restaurant</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </nav>
+    <a href="#" class="book-btn">Book Now</a>
+  </header>
+
+  <!-- Sección Hero -->
+  <section class="hero"
+    style="background-image: url('https://plus.unsplash.com/premium_photo-1661883237884-263e8de8869b?ixlib=rb-4.1.0&fm=jpg&q=60&w=3000');">
+    <div class="hero-text">
+      <h2>Our Restaurant</h2>
+      <p>Home > Restaurant</p>
+    </div>
+  </section>
+
+  <!-- Bienvenida -->
+  <section class="info">
+    <h2>WELCOME TO OUR RESTAURANT</h2>
+    <p>
+      Disfruta de una experiencia culinaria de primer nivel en nuestro restaurante.
+      Ofrecemos platos internacionales preparados con ingredientes frescos,
+      en un ambiente elegante y acogedor.
+    </p>
+  </section>
+
+  <!-- Menú -->
+  <section class="menu-preview">
+    <div class="menu-item">
+      <img
+        src="https://media.hellofresh.com/w_3840,q_auto,f_auto,c_fill,fl_lossy/hellofresh_website/es/cms/SEO/recipes/albondigas-caseras-de-cerdo-con-salsa-barbacoa.jpeg"
+        alt="Plato Especial">
+      <h3>Plato Especial</h3>
+      <p>Una receta única preparada por nuestros chefs.</p>
+    </div>
+
+    <div class="menu-item">
+      <img
+        src="https://media.hellofresh.com/w_3840,q_auto,f_auto,c_fill,fl_lossy/hellofresh_s3/image/HF_Y24_R16_W42_ES_ESSGP30616-2_Main__edit_meat_high-a670615d.jpg"
+        alt="Comida Gourmet">
+      <h3>Comida Gourmet</h3>
+      <p>Ingredientes selectos para una experiencia exclusiva.</p>
+    </div>
+
+    <div class="menu-item">
+      <img src="https://www.paulinacocina.net/wp-content/uploads/2020/01/untitled-copy.jpg" alt="Postres Deliciosos">
+      <h3>Postres Deliciosos</h3>
+      <p>El final perfecto para tu velada.</p>
+    </div>
+
+    <div class="menu-item">
+      <img
+        src="https://media.istockphoto.com/id/1472680285/es/foto/comida-saludable-con-pollo-a-la-parrilla-arroz-ensalada-y-verduras-servida-por-una-mujer.jpg?s=612x612&w=0&k=20&c=RafCzs-2byU6HSC2hbEkT07ZsZ5Q7j_XfAxCsXT6_f0="
+        alt="Ensalada Fresca">
+      <h3>Ensalada Fresca</h3>
+      <p>Vegetales orgánicos con aderezo especial.</p>
+    </div>
+
+    <div class="menu-item">
+      <img src="https://static.oprah.com/2017/03/201703-orig-healthy-plate-949x534.jpg" alt="Pasta Italiana">
+      <h3>Pasta Italiana</h3>
+      <p>Un clásico con auténtico sabor mediterráneo.</p>
+    </div>
+
+    <div class="menu-item">
+      <img
+        src="https://www.elespectador.com/resizer/v2/7N7ZYKGGUVCOTOV3IR6IFACH3Y.jpg?auth=e9713f9be15819806d9a9e28451e4badcd1b1746d01cc5693daf230650586470&width=920&height=613&smart=true&quality=60"
+        alt="Filete Premium">
+      <h3>Filete Premium</h3>
+      <p>Corte de carne jugoso y perfectamente sazonado.</p>
+    </div>
+
+    <!-- NUEVOS CONTENEDORES -->
+    <div class="menu-item">
+      <img src="https://www.recetasnestle.cl/sites/default/files/srh_recipes/379d1ba605985c4bc3ea975cabacce13.jpg"
+        alt="Ceviche Mixto">
+      <h3>Ceviche Mixto</h3>
+      <p>Frescura marina con un toque cítrico y especiado.</p>
+    </div>
+
+    <div class="menu-item">
+      <img src="https://k-listo.com/wp-content/uploads/2021/11/JUGOS.jpg" alt="Jugo Natural">
+      <h3>Jugo Natural</h3>
+      <p>Refrescante bebida preparada con frutas naturales.</p>
+    </div>
+  </section>
+
+  <!-- Pie de página -->
+  <footer class="footer">
+    <p>&copy; 2025 Royal Hotel. Todos los derechos reservados.</p>
+  </footer>
+</body>
+</html>
+
